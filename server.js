@@ -14,11 +14,7 @@ app.use(cors({
   origin:"*",
   credentials: true,
 }))
-app.use(
-  expressStaticGzip(path.join(__dirname, 'public'), {
-  enableBrotli: true, 
-  }),
-);
+
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(express.json());
