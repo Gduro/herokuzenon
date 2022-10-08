@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const expressStaticGzip = require("express-static-gzip");
 const app = require("express")();
 const admin = require("firebase-admin");
 const cors = require("cors")
@@ -14,6 +15,11 @@ app.use(cors({
   origin:"*",
   credentials: true,
 }))
+app.use(
+  expressStaticGzip(path.join(__dirname, 'build'), {
+  enableBrotli: true, 
+  }),
+);
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(express.json());
@@ -113,5 +119,4 @@ app.get('*', function (request, response){
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`backend -> http://localhost:${PORT}`);
 });
