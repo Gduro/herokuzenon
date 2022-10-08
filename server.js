@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const expressStaticGzip = require("express-static-gzip");
 const app = require("express")();
 const admin = require("firebase-admin");
 const cors = require("cors")
