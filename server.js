@@ -16,7 +16,7 @@ app.use(cors({
   credentials: true,
 }))
 app.use(
-  expressStaticGzip(path.join(__dirname, 'build'), {
+  expressStaticGzip(path.join(__dirname, 'public'), {
   enableBrotli: true, 
   }),
 );
